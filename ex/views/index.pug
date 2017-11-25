@@ -1,5 +1,244 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+
+
+  .carousel.slide#carouselExampleControls(data-ride="carousel")
+    .carousel-inner
+      .carousel-item.active
+        img.d-block.w-100(src="images/1.png" alt="First slide")
+      .carousel-item
+        img.d-block.w-100(src="images/2.png" alt="Second slide")
+    a.carousel-control-prev( href="#carouselExampleControls" role="button" data-slide="prev")
+      span.carousel-control-prev-icon(aria-hidden="true")
+      span.sr-only Previous
+    a.carousel-control-next(href="#carouselExampleControls" role="button" data-slide="next")
+      span.carousel-control-next-icon(aria-hidden="true")
+      span.sr-only Next
+  
+
+  .container
+    .card-body.text-center#big_card
+      h2.card-title
+        strong Find Your next experience
+      .row
+        .col-lg-2.col-md-2.col-sm-1.col-xs-2.col-0
+        .col-lg-8.col-md-8.col-sm-10.col-xs-8.col-12
+          p.card-text
+            form#input_form
+              .form-row
+                .col-lg-4.col-md-6.col-sm-5.col-xs-8.col-8
+                  label.sr-only(for="inlineFormInputName") Search_name
+                  input.form-control#inlineFormInputName(type="text" placeholder="Search event or categories")
+                .col-lg-3.col-md-2.col-sm-1-1.col-xs-1-1.col-1-1#inlineForm
+                  label.sr-only(for="inlineFormInputName") Nation
+                  input.form-control.mb-sm-0#inlineFormInputName2(type="text" placeholder="Republic of Korea")
+                .col-lg-3.col-md-4.col-sm-4.col-xs-1-1.col-1-1#daychecks
+                  select.custom-select#Daycheck
+                    option(selected) All Dates
+                    option(value="1") Today
+                    option(value="2") Tomorrow
+                    option(value="3") This Week
+                    option(value="4") This Weekend
+                    option(value="5") Next Week
+                    option(value="6") Next Month
+                .col-lg-2.col-md-2.col-sm-1.col-xs-4.col-2
+                  button.btn.btn-primary#butt Search
+        .col-lg-2.col-md-2.col-sm-1.col-xs-2.col-0
+
+
+  .row
+    .col-xl-3.col-lg-2.col-md-1.col-sm-1.col-xs-1.col-1
+    .col-xl-6.col-lg-8.col-md-10.col-sm-10.col-xs-10.col-10
+      .card-deck#cardline1
+        .card
+          img.card-img-top(src="images/card1.jpg" alt="Card image cap")
+          .card-body
+            h4.card-title Namhansanseong Fortress
+            p.card-text This is a booking of Namhansanseong Fortress preview
+          .card-footer
+            small.text-muted
+              a(href="#") #history
+            a(href="#") 
+              i.fa.fa-floppy-o.fa-lg(aria-hidden="true")
+            a(href="#")
+              i.fa.fa-share.fa-lg(aria-hidden="true")
+        .card
+          img.card-img-top(src="images/card2.jpg" alt="Card image cap")
+          .card-body
+            h4.card-title Crime Cities
+            p.card-text This is a booking of Crime Cities preview
+          .card-footer
+            small.text-muted
+              a(href="#") #Crime
+            a(href="#") 
+              i.fa.fa-floppy-o.fa-lg(aria-hidden="true")
+            a(href="#")
+              i.fa.fa-share.fa-lg(aria-hidden="true")
+        .card
+          img.card-img-top(src="images/card3.jpg" alt="Card image cap")
+          .card-body
+            h4.card-title Kingsman: The Golden Circle
+            p.card-text This is a booking of Kingsman: The Golden Circle preview
+          .card-footer
+            small.text-muted
+              a(href="#") #action
+            a(href="#") 
+              i.fa.fa-floppy-o.fa-lg(aria-hidden="true")
+            a(href="#")
+              i.fa.fa-share.fa-lg(aria-hidden="true")
+    .col-xl-3.col-lg-2.col-md-1.col-sm-1.col-xs-1.col-1
+
+  .row
+    .col-xl-3.col-lg-2.col-md-1.col-sm-1.col-xs-1.col-1
+    .col-xl-6.col-lg-8.col-md-10.col-sm-10.col-xs-10.col-10
+      .card-deck#cardline1
+        .card
+          img.card-img-top(src="images/card1.jpg" alt="Card image cap")
+          .card-body
+            h4.card-title Nut Job2
+            p.card-text This is a booking of Nut Job2 preview
+          .card-footer
+            small.text-muted
+              a(href="#") #animation
+            a(href="#") 
+              i.fa.fa-floppy-o.fa-lg(aria-hidden="true")
+            a(href="#")
+              i.fa.fa-share.fa-lg(aria-hidden="true")
+        .card
+          img.card-img-top(src="images/card2.jpg" alt="Card image cap")
+          .card-body
+            h4.card-title Deep
+            p.card-text This is a booking of Deep preview
+          .card-footer
+            small.text-muted
+              a(href="#") #animation
+            a(href="#") 
+              i.fa.fa-floppy-o.fa-lg(aria-hidden="true")
+            a(href="#")
+              i.fa.fa-share.fa-lg(aria-hidden="true")
+        .card
+          img.card-img-top(src="images/card3.jpg" alt="Card image cap")
+          .card-body
+            h4.card-title Blade runner 2049
+            p.card-text This is a booking of Blade runner 2049 preview
+          .card-footer
+            small.text-muted
+              a(href="#") #action
+            a(href="#") 
+              i.fa.fa-floppy-o.fa-lg(aria-hidden="true")
+            a(href="#")
+              i.fa.fa-share.fa-lg(aria-hidden="true")
+    .col-xl-3.col-lg-2.col-md-1.col-sm-1.col-xs-1.col-1
+
+  .row
+    .col-xl-3.col-lg-2.col-md-1.col-sm-1.col-xs-1.col-1
+    .col-xl-6.col-lg-8.col-md-10.col-sm-10.col-xs-10.col-10
+      .card-deck#cardline1
+        .card
+          img.card-img-top(src="images/card1.jpg" alt="Card image cap")
+          .card-body
+            h4.card-title The memory of a murderer
+            p.card-text This is a booking of The memory of a murderer preview
+          .card-footer
+            small.text-muted
+              a(href="#") #Crime
+            a(href="#") 
+              i.fa.fa-floppy-o.fa-lg(aria-hidden="true")
+            a(href="#")
+              i.fa.fa-share.fa-lg(aria-hidden="true")
+        .card
+          img.card-img-top(src="images/card2.jpg" alt="Card image cap")
+          .card-body
+            h4.card-title Baby driver
+            p.card-text This is a booking of Baby driver preview
+          .card-footer
+            small.text-muted
+              a(href="#") #action
+            a(href="#") 
+              i.fa.fa-floppy-o.fa-lg(aria-hidden="true")
+            a(href="#")
+              i.fa.fa-share.fa-lg(aria-hidden="true")
+        .card
+          img.card-img-top(src="images/card3.jpg" alt="Card image cap")
+          .card-body
+            h4.card-title 20th Century Women
+            p.card-text This is a booking of 20th Century Women preview
+          .card-footer
+            small.text-muted
+              a(href="#") #drama
+            a(href="#") 
+              i.fa.fa-floppy-o.fa-lg(aria-hidden="true")
+            a(href="#")
+              i.fa.fa-share.fa-lg(aria-hidden="true")
+    .col-xl-3.col-lg-2.col-md-1.col-sm-1.col-xs-1.col-1
+
+  .text-center
+    button.btn.btn-outline-primary.btn-lg.center-block#Seemore(type="button") SEE MORE
+  div
+    h3 Browse by Top Categories
+
+  .row
+    .col-xl-3.col-lg-2.col-md-1.col-sm-1.col-xs-1.co1-1
+    .col-xl-4.col-lg-5.col-md-7.col-sm-7.col-xs-12.co1-12
+      .grid
+        figure.effect-chico
+          img(src="images/cate2.png" alt="img01")
+          figcaption MOVIE
+            span Museum
+            p Have a lot of fun Exciting Movie Museum.
+            a(href="#") View more
+    .col-xl-2.col-lg-3.col-md-3.col-sm-3.col-xs-12.col-12
+      .grid
+        figure.effect-chico
+          img(src="images/cate1.png" alt="img02")
+          figcaption MOVIE
+            span PREVIEW
+            p Participate in the preview.
+            a(href="#") View more
+    .col-xl-3.col-lg-2.col-md-1.col-sm-1.col-xs-1.col-1
+    
+  .row#categories
+    .col-xl-3.col-lg-2.col-md-1.col-sm-1.col-xs-1.col-1
+    .col-xl-2.col-lg-2.col-md-3.col-sm-3.col-xs-1.col-1
+      .grid#gridwhatneed
+        figure.effect-chico
+          img(src="images/cate7.png" alt="img03")
+          figcaption Talk
+            p Share your opinions.
+            a(href="#") View more
+    .col-xl-2.col-lg-4.col-md-4.col-sm-4.col-xs-1.col-1
+      .grid
+        figure.effect-chico
+          img(src="images/cate3.png" alt="img04")
+          figcaption Watching
+          span Movie
+          p Join a film.
+          a(href="#") View more
+    .col-xl-2.col-lg-2.col-md-3.col-sm-3.col-xs-1.col-1
+      .grid
+        figure.effect-chico
+          img(src="images/cate6.png" alt="img05")
+          figcaption Propose
+            p Say love in a movie theater.
+            a(href="#") View more
+    .col-xl-3.col-lg-2.col-md-1.col-sm-1.col-xs-1.col-1
+  .row
+    .col-xl-3.col-lg-2.col-md-1.col-sm-1.col-xs-1.col-1
+    .col-xl-4.col-lg-5.col-md-7.col-sm-7.col-xs-12.col-12
+      .grid
+        figure.effect-chico
+          img(src="images/cate4.png" alt="img06")
+          figcaption MOVIE
+          span Red carpet
+          p Join a beautiful film festival.
+          a(href="#") View more
+    .col-xl-2.col-lg-3.col-md-3.col-sm-3.col-xs-12.col-12
+      .grid
+        figure.effect-chico
+          img(src="images/cate5.png" alt="img07")
+          figcaption MOVIE
+          span Volunteer
+          p With Volunteer activities.
+          a(href="#") View more
+    .col-xl-3.col-lg-2.col-md-1.col-sm-1.col-xs-1.col-1

@@ -11,9 +11,12 @@ var users = require('./routes/users');
 
 var app = express();
 
-// view engine setup
+// view engine setup //if문은 사이트에서 마우스 우클릭으로 소스보기할 때 좋게 보는 방법
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+if(app.get('env') === 'development'){ 
+  app.locals.pretty = true;
+}
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

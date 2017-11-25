@@ -1,0 +1,37 @@
+nav.navbar.navbar-expand-lg(id="mainnavbar").navbar-light.bg-light
+        a.navbar-brand(herf="/") 
+            h1 PREMOVIEW
+        button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation")
+            span.navbar-toggler-icon
+        #navbarNavDropdown.navbar-collapse.collapse
+            ul.nav.navbar-nav.ml-md-auto
+                li.nav-item#nav_lg
+                    a.nav-link(href="#") BROWSE EVENTS
+                li.nav-item.dropdown#_lg
+                    a.nav-link.dropdown-toggle#navbarDropdownMenuLink(href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hover="dropdown") ORGANIZE
+                    .dropdown-menu(aria-labelledby="navbarDropdownMenuLink")
+                        a.dropdown-item(href="#") BROWSE EVENTS
+                        a.dropdown-item(href="#") Pricing
+                        a.dropdown-item(href="#") Blog
+                        a.dropdown-item(href="#") Resources
+                li.nav-item.dropdown   
+                    a.nav-link.dropdown-toggle#helpdrop(href="#" data-toogle="dropdown" aria-haspopup="true" aria-expanded="false") HELP
+                    .dropdown-menu(aria-labelledby="navbarDropdownMenuLink")
+                        a.dropdown-item(href="#") Where are my tickets?    
+                        a.dropdown-item(href="#") How to contact the event organizer
+                        a.dropdown-item(href="#") Help Center
+                li.nav-item#helpbutton   
+                    a.nav-link(href="#") HELP
+                if(!currentUser)
+                    li.nav-item  
+                        a.nav-link(href="#") SIGN IN
+                    li.nav-item#creativea
+                        .nav-item#creative
+                            a.nav-link#creativeselect(href="#") Creatvie Event
+                else
+                    li.nav-item
+                        a.nav-link(href='/users/${currentUser._id}') My Profile
+                    li.nav-item
+                        a.nav-link(href='/signout') Signout
+            if(!currentUser)
+                button.btn.btn-primary.btn-lg.btn-block#creativebutton(type="button") Creative Event
