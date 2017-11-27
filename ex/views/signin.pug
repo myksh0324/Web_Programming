@@ -10,21 +10,21 @@ block content
           type='email', id='email', name='email', class='form-control', 
           placeholder='Email address', required, autofocus
         )
+        br
         label.sr-only(for='password') Password
         input(
           type='password', id='password', name='password', class='form-control', 
           placeholder='Password', required, autofocus
         )
-        .checkbox
-          label 
-            input(type="checkbox", value="remember-me")
-            |
-            | Remember me
         button.btn.btn-primary.btn-block(type='submit') Signin
         div.sub 
           a(href='/users/new') Signup
           | 
           | /
           |
-          a(href='/reset-password') Reset Password
-      
+          a(href='/reset-password') facebook login
+          br
+          | 
+          | /
+          |
+          a(href='/reset-password') KaKao login

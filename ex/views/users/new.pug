@@ -1,0 +1,24 @@
+extends ../layout
+
+block content
+  .container
+    h2.main-title Create an account
+    form(action='/users', method='POST')
+      .form-group
+        label(for='name') Name
+        input.form-control(type='text', id='name', name='name', placeholder='Your name')
+      .form-group
+        label(for='email') Email address
+        input.form-control(type='email', id='email', name='email', placeholder='Email')
+      .form-group
+        label(for='password') Password
+        input.form-control(type='password', id='password', name='password', placeholder='Password')
+      .form-group
+        label(for='password_confirmation') Password Confirmation
+        input.form-control(type='password', id='password_confirmation', name='password_confirmation', placeholder='Password')
+      | 
+      button.btn.btn-primary(type='submit') Register 
+      hr
+      h8 By signing up. I agree to PREMOVIEW's terms of service.
+      br
+      h8 privacy policy, and community guidelines

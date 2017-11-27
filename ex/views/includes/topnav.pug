@@ -1,6 +1,7 @@
 nav.navbar.navbar-expand-lg(id="mainnavbar").navbar-light.bg-light
         a.navbar-brand(herf="/") 
-            h1 PREMOVIEW
+            a(href="/")
+                h1 PREMOVIEW
         button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation")
             span.navbar-toggler-icon
         #navbarNavDropdown.navbar-collapse.collapse
@@ -24,14 +25,17 @@ nav.navbar.navbar-expand-lg(id="mainnavbar").navbar-light.bg-light
                     a.nav-link(href="#") HELP
                 if(!currentUser)
                     li.nav-item  
-                        a.nav-link(href="#") SIGN IN
+                        a.nav-link(href="/signin") SIGN IN
                     li.nav-item#creativea
                         .nav-item#creative
-                            a.nav-link#creativeselect(href="#") Creatvie Event
+                            a.nav-link#creativeselect(href="/signin") Creatvie Event
                 else
                     li.nav-item
-                        a.nav-link(href='/users/${currentUser._id}') My Profile
+                        a.nav-link(href=`/users/${currentUser._id}`) My Profile
                     li.nav-item
                         a.nav-link(href='/signout') Signout
             if(!currentUser)
-                button.btn.btn-primary.btn-lg.btn-block#creativebutton(type="button") Creative Event
+                button.btn.btn-primary.btn-lg.btn-block#creativebutton(type="button")
+                    a(href="/signin") Creative Event
+           
+                    

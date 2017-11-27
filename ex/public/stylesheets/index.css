@@ -20,6 +20,7 @@ h3{
 }
 
 footer{
+    margin-top: 100px;
     background-color: #282c35; 
     color: #c3c7d0;    
     border-top: 5px solid;
@@ -263,7 +264,9 @@ ul{
         color: rgb(245, 135, 135);
         font-size: 0.7rem;
     }
-    
+    h8{
+        font-size: 0.8rem;
+    }
 }    
 @media only screen and (min-device-width : 0px) and (max-device-width : 740px){
     #navbarDropdownMenuLink{
@@ -332,6 +335,9 @@ ul{
     #categories{
         display: none;        
         
+    }
+    h8{
+        font-size: 0.7rem;
     }
 }    
 

@@ -1,0 +1,34 @@
+extends ../layout
+
+block content
+  .container
+    h1.main-title= 'My Profile'
+          
+    dl.row
+      dt.col-sm-3 NAME
+      dd.col-sm-9= user.name
+
+      dt.col-sm-3 Email
+      dd.col-sm-9
+        a(href=`mailto:${user.email}`)= user.email
+
+      
+
+    hr
+
+    a.btn.btn-primary(href=`/users/${user._id}/edit`) Edit
+      
+    .btn.btn-danger(type="button" data-toggle="modal" data-target="#deletemodal") Delete
+    
+    .modal.fade#deletemodal(tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel")
+      .modal-dialog(role="document")
+        .modal-content
+          .modal-header
+            h5.modal-title#titleOfModal Removed from the list
+            button.close(type="button" data-dismiss="modal" aria-label="Close")
+              span(aria-hidden="true") &times;
+          .modal-body
+            h8 Do yo Really want Delete your ID?
+          .modal-footer
+            button.btn.btn-secondary(type="button" data-dismiss="modal") NO
+            a.btn.btn-outline-danger(href=`/users/${user._id}?_method=DELETE`) Delete
