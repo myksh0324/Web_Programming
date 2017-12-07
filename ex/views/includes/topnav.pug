@@ -7,11 +7,11 @@ nav.navbar.navbar-expand-lg(id="mainnavbar").navbar-light.bg-light
         #navbarNavDropdown.navbar-collapse.collapse
             ul.nav.navbar-nav.ml-md-auto
                 li.nav-item#nav_lg
-                    a.nav-link(href="#") BROWSE EVENTS
+                    a.nav-link(href="/questions") BROWSE EVENTS
                 li.nav-item.dropdown#_lg
                     a.nav-link.dropdown-toggle#navbarDropdownMenuLink(href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hover="dropdown") ORGANIZE
                     .dropdown-menu(aria-labelledby="navbarDropdownMenuLink")
-                        a.dropdown-item(href="#") BROWSE EVENTS
+                        a.dropdown-item(href="/questions") BROWSE EVENTS
                         a.dropdown-item(href="#") Pricing
                         a.dropdown-item(href="#") Blog
                         a.dropdown-item(href="#") Resources
@@ -22,20 +22,23 @@ nav.navbar.navbar-expand-lg(id="mainnavbar").navbar-light.bg-light
                         a.dropdown-item(href="#") How to contact the event organizer
                         a.dropdown-item(href="#") Help Center
                 li.nav-item#helpbutton   
-                    a.nav-link(href="#") HELP
+                    a.nav-link(href="/users") HELP
                 if(!currentUser)
                     li.nav-item  
                         a.nav-link(href="/signin") SIGN IN
                     li.nav-item#creativea
                         .nav-item#creative
-                            a.nav-link#creativeselect(href="/signin") Creatvie Event
+                            a.nav-link#creativeselect(href="/users/new") SIGN UP
                 else
                     li.nav-item
                         a.nav-link(href=`/users/${currentUser._id}`) My Profile
                     li.nav-item
                         a.nav-link(href='/signout') Signout
+                    if(currentUser.email == 'myksh0324@gmail.com')
+                        li.nav-item
+                            a.nav-link(href="/users") ADMIN
             if(!currentUser)
                 button.btn.btn-primary.btn-lg.btn-block#creativebutton(type="button")
-                    a(href="/signin") Creative Event
-           
+                    a#creativEventButton(href="/signin") Creative Event
+            
                     

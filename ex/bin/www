@@ -1,33 +1,35 @@
-#!/usr/bin/env node
-
 /**
- * Module dependencies.
+ * 모델 의존도
  */
-
-var app = require('../app');
-var debug = require('debug')('ex01:server');
+var express = require('express');
+var app = express();
+var debug = require('debug')('ex:server');
 var http = require('http');
 
 /**
- * Get port from environment and store in Express.
+ *환경변수로 3000번대 포트를 잡습니다.
  */
 
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /**
- * Create HTTP server.
+ * Http서버를 생성하여 줍니다.
  */
 
 var server = http.createServer(app);
 
 /**
- * Listen on provided port, on all network interfaces.
+ * 포트에 웹 소켓 서버를 연결 할 수 있도록 합니다.
  */
 
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
+
+var io = require('socket.io')(server);
+require('../app')(app, io);     // app.js 실행
+
 
 /**
  * Normalize a port into a number, string, or false.

@@ -1,0 +1,37 @@
+extends ../layout
+
+block content
+  .container
+    h1.main-title= 'My Favorite'
+    a.nav-link(href=`/users/${currentUser._id}`) Back to My Profile
+
+    table.table.table-striped.table-bordered
+        thead
+          tr
+            th.h5 Event name
+            th.h5 Start Date
+            th.h5 Delete
+        tbody 
+            each favorite in favorites
+                tr
+                td
+                    p
+                    a(href="/questions/#{favorite.site_id}")=favorite.site_title
+                td
+                    p=favorite.site_SDate
+                td
+                    a.btn.btn-xs.btn-default(data-id=favorite.id, class='delete') Delete
+
+           
+
+    form#deleteForm(style='display:none', method="POST")
+            
+    script(type='text/javascript').
+      $(".delete").click(function(e) {
+        var id = $(e.currentTarget).data('id');
+        if (confirm('Are you sure that you want to Delete your favorite?')) {
+          console.log("success");
+          $("#deleteForm").attr('action', "/users/" + id + "/favorite?_method=DELETE").submit();          
+        }
+        return false;
+      });

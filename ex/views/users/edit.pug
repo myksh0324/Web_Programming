@@ -2,7 +2,7 @@ extends ../layout
 
 block content
   .container
-    h2.main-title Profile Update
+    h1.main-title Profile Update
     form(action=`/users/${user._id}?_method=PUT`, method='POST')
       .form-group
         label(for='name') Name
@@ -22,4 +22,3 @@ block content
       a.btn.btn-outline-secondary(href='javascript:window.history.back();') Back 
       | 
       button.btn.btn-primary(type='submit') Update
-

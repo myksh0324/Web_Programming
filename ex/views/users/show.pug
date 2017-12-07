@@ -12,14 +12,27 @@ block content
       dd.col-sm-9
         a(href=`mailto:${user.email}`)= user.email
 
-      
+      if user.facebook.id
+        dt.col-sm-3 Facebook
+        dd.col-sm-9
+          img.img-fluid.rounded-circle(src= user.facebook.photo)
+      if user.kakao.id
+        dt.col-sm-3 kakao
+        dd.col-sm-9
+          img.img-fluid.rounded-circle(src= user.kakao.photo)
 
-    hr
-
-    a.btn.btn-primary(href=`/users/${user._id}/edit`) Edit
-      
+    br
+    a.btn.btn-primary(href=`/users/${user._id}/edit`) Edit    
     .btn.btn-danger(type="button" data-toggle="modal" data-target="#deletemodal") Delete
-    
+    hr
+    |
+    a.btn.btn-primary(href=`/users/${user._id}/favorite`) My Favorites    
+
+
+
+
+
+
     .modal.fade#deletemodal(tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel")
       .modal-dialog(role="document")
         .modal-content
@@ -28,7 +41,11 @@ block content
             button.close(type="button" data-dismiss="modal" aria-label="Close")
               span(aria-hidden="true") &times;
           .modal-body
-            h8 Do yo Really want Delete your ID?
+            h7 Do yo Really want Delete your ID?
+            br
+            h8 If you delete your id, 
+            br
+            h8 it will be automatically moved to the login page.
           .modal-footer
             button.btn.btn-secondary(type="button" data-dismiss="modal") NO
             a.btn.btn-outline-danger(href=`/users/${user._id}?_method=DELETE`) Delete

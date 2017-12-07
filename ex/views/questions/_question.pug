@@ -6,12 +6,12 @@
 .row
   .col-sm
     .numbers.
-      #[span.number.num-votes= question.numLikes] likes,
+      #[span.number.num-likes= question.numLikes] Joins,
       #[span.number.num-answers= question.numAnswers] answers,
-      #[span.number.num-views= question.numReads] reads
+      #[span.number.num-reads= question.numReads] reads
   .col-sm
     .author
       | asked on #{moment(question.createdAt).format('YYYY-MM-DD')}
       if question.author
         | 
-        | by #[a(href=`/users/${question.author.id}`)= question.author.name] 
+        | by #[a(href=`#`)= question.author.name] 

@@ -4,7 +4,7 @@ block content
   .container
     .clearfix
       form.form-signin(action='/signin', method='POST')
-        h3.form-signin-heading Signin
+        h3.form-signin-heading Sign in
         label.sr-only(for='email') Email address
         input(
           type='email', id='email', name='email', class='form-control', 
@@ -17,14 +17,16 @@ block content
           placeholder='Password', required, autofocus
         )
         button.btn.btn-primary.btn-block(type='submit') Signin
-        div.sub 
-          a(href='/users/new') Signup
-          | 
-          | /
-          |
-          a(href='/reset-password') facebook login
-          br
-          | 
-          | /
-          |
-          a(href='/reset-password') KaKao login
+        hr
+        a.btn.btn-dark.btn-block(href='/auth/facebook')
+          i.fa.fa-facebook.fa-lg
+          | &nbsp;
+          | Facebook login
+        a.btn.btn-dark.btn-block(href='/auth/kakao')
+          i.fa.fa-facebook.fa-lg
+          | &nbsp;
+          | KAKAO login
+
+        a.btn.btn-dark.btn-block(href='/users/new') Sign up
+        hr
+        a.btn.btn-dark.btn-block(href='/users/find') Find my password

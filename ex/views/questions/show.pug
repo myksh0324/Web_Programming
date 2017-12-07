@@ -5,35 +5,87 @@ block content
     h1.main-title= question.title
 
     .question.show
-      .content= question.content
+      h5 Type of Event:
+        br 
+        h7 &nbsp;
+        h7.content= question.typeOfEvent
+      br
+      h5 Location:
+        br 
+        h7 &nbsp;
+        h7.content= question.location
+      br
+      h5 Organization or individual name:
+        br 
+        h7 &nbsp;
+        h7.content= question.name
+      br
+      h5 Who am I:
+        br 
+        h7 &nbsp;
+        h7.content= question.nameDetail
+      br
+      h5 Participation fee:
+        br 
+        h7 &nbsp;
+        h7.content= question.Price
+        span $
+      br
+      h5 Date: 
+        br 
+        h7 &nbsp;
+        h7.content= question.ViewSDate
+        span  ~
+        h7.content= question.ViewFDate
+
+      br
+      h5 Each Of Time: 
+        br 
+        h7 &nbsp;
+        h7.content= question.startshour
+        span  :
+        h7.content= question.startsmin
+        span  ~ 
+        h7.content= question.finishshour
+        span  :
+        h7.content= question.finishsmin
+      br
+      h5 Details of event:
       include _question
+      if currentUser
+        if question.author && question.author.id == currentUser.id
+          h7 참여자 정보입니다.
+          br
+          |
+          h7.content= question.joinPeople
 
       .buttons
-        button.btn.btn-primary #[i.fa.fa-thumbs-up] Like
-        | 
-        a.btn.btn-outline-secondary(href=`/questions/${question.id}/edit`) Edit
-        | 
-        a.btn.btn-outline-danger.delete-btn(href="#", data-url=`/questions/${question.id}?_method=delete`) Delete
-      
+        if currentUser
+          button.btn.btn-primary.question-like-btn(data-id=question.id) 
+            span.for-loading #[i.fa.fa-spin.fa-refresh] Loading
+            span #[i.fa.fa-sign-in] Join
+          if question.author && question.author.id == currentUser.id
+            | 
+            a.btn.btn-outline-secondary(href=`/questions/${question.id}/edit`) Edit
+            | 
+            a.btn.btn-outline-danger.need-confirm-btn(href=`/questions/${question.id}?_method=delete`) Delete
+            |
+            |
+      if currentUser
+        form(action=`/questions/${question.id}/Favorite`, method='POST')
+          button.btn.btn-primary.btn-sm.btn-block(type='submit') Add to my Favorites         
     if question.numAnswers > 0
       hr
       h3 #{question.numAnswers} Answer(s)
       .answers.show
         each answer in answers
           include _answer
+    if currentUser
+      form(action=`/questions/${question.id}/answers`, method='POST')
+        .form-group
+          label(for='answer') Your Answer
+          textarea.form-control#answer(name="content", rows="5")
+        button.btn.btn-primary(type="submit") Post Your Answer
 
-    form(action=`/questions/${question.id}/answers`, method='POST')
-      .form-group
-        label(for='answer') Your Answer
-        textarea.form-control(name="content", rows="5")
-      button.btn.btn-primary(type="submit") Post Your Answer
-
-  script.
-    $(function() {
-      $('.delete-btn').click(function() {
-        if (confirm('Are you sure to delete?')) {
-          location = $(this).data('url');
-        }
-        return false;
-      });
-    });
+    
+  script(src='/javascripts/question_client.js')

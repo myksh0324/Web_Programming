@@ -1,17 +1,33 @@
 .form-group
-  label(for="title") Event Title
+  label(for="title") Event Title 
   input.form-control(type="text", name="title", placeholder="Create your Events Title", value=question.title)
 .form-group
   label(for="sector") Field of Events
   select.custom-select#sector(name="sector")
-    option(selected value="Related_Movie") Related Movie
+    option(selected value=question.sector)
+      h7.content= question.sector
+    option(value="Related_Movie") Related Movie
     option(value="Etc") ETC
 .form-group#typeOfEvent
-  label#typeE(for="typeOfEvents") Type of Movie Events
+  label#typeE(for="typeOfEvents") Type of Events
+  input.form-control#typeOfEventEtc(type='text' name='typeOfEvent' placeholder='Create your Event Sector and Event type' value=question.typeOfEvent)
+  label#typeM(for="typeOfEvents") Type of Movie Events
+  select.custom-select#typeOfEventM(name='typeOfEvent')
+    option(selected value=question.typeOfEvent)
+      h7.content= question.typeOfEvent
+    option(value="Movie Preview") Movie Preview
+    option(value="Talking about Movie") Talking about Movie
+    option(value="Watching Movie") Watching Movie
+    option(value="Events at the Cinema") Events at the Cinema
+    option(value="Volunteering at the Cinema") Volunteering at the Cinema
+    option(value="Redcarpet Travel") Redcarpet Travel
+    option(value="Visit movie Museum") Visit movie Museum
 .form-group
   label(for="locations") location
-  select.custom-select#Loaction(name="location")
-    option(selected value="Seoul") Seoul
+  select.custom-select#Loaction(name="location" question.location)
+    option(selected value=question.location)
+      h7.content= question.location
+    option(value="Seoul") Seoul
     option(value="Busan") Busan
     option(value="Daegu") Daegu
     option(value="Gwangju") Gwangju
@@ -34,23 +50,27 @@
 .form-group
   label(for="money") Free or Charged Ticket?
   select.custom-select#money(name="money")
-    option(selected value="free") free
+    option(selected value=question.money)
+      h7.content= question.money
+    option(value="free") free
     option(value="charged") charge
 .form-group#freeOrCharge
-  label#typeP(for="Price") Price
-  select.custom-select#pp(name="Price")
-    option(selected value="0") 0
+  label#typeE(for="Price") Price($)
+  input.form-control#Price(type="number", name="Price", placeholder="How much do you want, Only numbers can be used, base currency is dollar." value=question.Price)
+
 .form-group
   label(for='SDate') Check IN
-    input.form-control(type='text', id='SDate', name='SDate')
+    input.form-control(type='text', id='SDate', name='SDate' value=question.ViewSDate)
 .form-group
   label(for='FDate') Check Out
-    input.form-control(type='text', id='FDate', name='FDate')
+    input.form-control(type='text', id='FDate', name='FDate' value=question.ViewFDate)
 
 
 .form-group
   label(for="startshour") Start time of the event
   select.custom-select#startshour(name="startshour")
+    option(selected value=question.startshour)
+      h7.content= question.startshour
     option(value="00") 00
     option(value="01") 01
     option(value="02") 02
@@ -60,7 +80,7 @@
     option(value="06") 06
     option(value="07") 07
     option(value="08") 08
-    option(selected value="09") 09
+    option(value="09") 09
     option(value="10") 10
     option(value="11") 11
     option(value="12") 12
@@ -79,7 +99,9 @@
   |
   span :
   select.custom-select#startsmin(name="startsmin")
-    option(selected value="00") 00
+    option(selected value=question.startsmin)
+      h7.content= question.startsmin
+    option(value="00") 00
     option(value="01") 01
     option(value="02") 02
     option(value="03") 03
@@ -143,6 +165,8 @@
 .form-group
   label(for="finishshour") Finish time of the event
   select.custom-select#finishshour(name="finishshour")
+    option(selected value=question.finishshour)
+      h7.content= question.finishshour
     option(value="00") 00
     option(value="01") 01
     option(value="02") 02
@@ -152,7 +176,7 @@
     option(value="06") 06
     option(value="07") 07
     option(value="08") 08
-    option(selected value="09") 09
+    option(value="09") 09
     option(value="10") 10
     option(value="11") 11
     option(value="12") 12
@@ -171,7 +195,9 @@
   |
   span :
   select.custom-select#finishsmin(name="finishsmin")
-    option(selected value="00") 00
+    option(selected value=question.finishsmin)
+      h7.content= question.finishsmin
+    option(value="00") 00
     option(value="01") 01
     option(value="02") 02
     option(value="03") 03
@@ -246,4 +272,4 @@
   input.form-control(type="text", name="tags", placeholder="tags separated by spaces", value=question.tags ? question.tags.join(" ") : "")
 
   
-script(src='/javascripts/question_set.js')  
+script(src='/javascripts/question_edit.js')   

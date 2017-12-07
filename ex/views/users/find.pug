@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+  .container
+    h1.main-title Find your password
+    form(action='/users', method='POST')
+      h4 If you have an email address, 
+      h4 we will send you the changed password. 
+      br
+      form(action="/users/find", method="POST")
+        label(for='findEmail') Email address
+        input.form-control(type='findEmail', id='findEmail', name='findEmail', placeholder='Email')
+        br
+        button.btn.btn-primary(type='submit') Submit 
+      hr
+      h8 If the email address is wrong, password will not be sent.
