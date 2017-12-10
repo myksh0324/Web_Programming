@@ -3,7 +3,7 @@ This Assignmet Web Programming ^^
 You can take this format Non-commercial freely and use it.
 
 If you want to use
-Download Node versopm 8.9.3 LTS & Download Python 2.7.14
+Download Node version 8.9.3 LTS & Download Python 2.7.14
 
 How to run locally
 1. open your cmd
