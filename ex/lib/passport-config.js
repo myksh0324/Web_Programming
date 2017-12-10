@@ -30,13 +30,17 @@ module.exports = function (passport) {
 
   // facebook 로그인 기능 //차후 Heroku에 deploy시 주소 수정요함
   //현재는 dev모드여서 Public하게 사용하기 위해서는 App Review요청을 해야함
+
+  const callbackURL ='https://premoview.herokuapp.com/auth/facebook/callback';
+
   passport.use(new FacebookStrategy({
-    clientID: '1783743164971161',
-    clientSecret: 'd0f5857dc4197db8bec4f4cc5bffcb05',
-    callbackURL: 'http://localhost:3000/auth/facebook/callback',
+    clientID: process.env.FBID || '1783743164971161',
+    clientSecret: process.env.FB_SECRET || 'd0f5857dc4197db8bec4f4cc5bffcb05',
+    callbackURL: callbackURL,
     profileFields : ['email', 'name', 'picture']
   }, async (token, refreshToken, profile, done) => {
     console.log('Facebook', profile); // facebook에서 넘어오는 profile 정보
+    console.log('아이디정보받기:', user); // facebook에서 넘어오는 profile 정보
     try {
       var email = (profile.emails && profile.emails[0]) ? profile.emails[0].value : '';
       var picture = (profile.photos && profile.photos[0]) ? profile.photos[0].value : '';
@@ -68,11 +72,11 @@ module.exports = function (passport) {
     }
   }));
 
-  //kakao로그인 기능
+  //kakao로그인 기능 //로컬로 못하게 막아놨습니다.
   passport.use(new KakaoStrategy({
     clientID: 'dd1601044df8b85979edbff9bcac72ce',
     clientSecret: '1Th1jJPldi312eIJxYL8SeF6Nz2bPzhX',
-    callbackURL: 'http://localhost:3000/auth/kakao/callback',
+    callbackURL:  'https://premoview.herokuapp.com/auth/kakao/callback'|| 'http://localhost:3000/auth/kakao/callback' ,
   }, async (token, refreshToken, profile, done) => {
     console.log('kakao', profile); // kakao에서 넘어오는 profile 정보
     try {

@@ -9,7 +9,7 @@
         | Like
 
   .card-body
-    .content= answer.content
+    .content#answerD= answer.content
   .row.card-body
     .col-sm
     .col-sm.text-right
@@ -18,3 +18,4 @@
         if answer.author
           | 
           | by #[a(href=`#`)= answer.author.name]
+

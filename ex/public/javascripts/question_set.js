@@ -33,9 +33,7 @@ $(function() {
     });
     //https://m.blog.naver.com/PostView.nhn?blogId=javaking75&logNo=220546927730&proxyReferer=https%3A%2F%2Fwww.google.co.kr%2F
     //위 사이트에서 데이트 피커 날짜 범위 설정을 배웠습니다.
-    
-    $.datepicker.setDefaults($.datepicker.regional['ko']); 
-    
+        
     // 시작일(fromDate)은 종료일(toDate) 이후 날짜 선택 불가
     // 종료일(toDate)은 시작일(fromDate) 이전 날짜 선택 불가
 
@@ -44,7 +42,7 @@ $(function() {
         showOn: "both",                     // 달력을 표시할 타이밍 (both: focus or button)
         buttonImage: "images/calendar.gif", // 버튼 이미지
         buttonImageOnly : true,             // 버튼 이미지만 표시할지 여부
-        buttonText: "날짜선택",             // 버튼의 대체 텍스트
+        buttonText: "Choose Date",             // 버튼의 대체 텍스트
         dateFormat: "yy-mm-dd",             // 날짜의 형식
         changeMonth: true,                  // 월을 이동하기 위한 선택상자 표시여부
         //minDate: 0,                       // 선택할수있는 최소날짜, ( 0 : 오늘 이전 날짜 선택 불가)
@@ -60,7 +58,7 @@ $(function() {
         showOn: "both", 
         buttonImage: "images/calendar.gif", 
         buttonImageOnly : true,
-        buttonText: "날짜선택",
+        buttonText: "Choose Date",
         dateFormat: "yy-mm-dd",
         changeMonth: true,
         //minDate: 0, // 오늘 이전 날짜 선택 불가

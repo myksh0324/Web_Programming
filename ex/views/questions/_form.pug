@@ -1,3 +1,5 @@
+script(src='/javascripts/question_set.js')  
+
 .form-group
   label(for="title") Event Title
   input.form-control(type="text", name="title", placeholder="Create your Events Title", value=question.title)
@@ -234,16 +236,15 @@
   h7 (If you span several days, Select when you Finish every day.) 
 .form-group
   label(for="question") Details of the event
-  textarea.form-control(name="content", rows="5")= question.content
+  textarea.form-control#detailinput2(name="content", rows="5")= question.content
 .form-group
   label(for="name") Name(Who am i?)
   input.form-control(type="text", name="name", placeholder="Registration Organization name Or Personal name", value=question.name)
 .form-group
   label(for="nameDetail") Details of Organization
-  textarea.form-control(name="nameDetail", rows="3" placeholder="Explain what organization you are.")= question.nameDetail
+  textarea.form-control#detailinput1(name="nameDetail", rows="3" placeholder="Explain what organization you are.")= question.nameDetail
 .form-group
   label(for="tags") tag
   input.form-control(type="text", name="tags", placeholder="tags separated by spaces", value=question.tags ? question.tags.join(" ") : "")
 
   
-script(src='/javascripts/question_set.js')  

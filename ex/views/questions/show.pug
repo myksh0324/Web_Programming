@@ -23,7 +23,8 @@ block content
       h5 Who am I:
         br 
         h7 &nbsp;
-        h7.content= question.nameDetail
+        
+        h7.content#nameDetail= question.nameDetail
       br
       h5 Participation fee:
         br 
@@ -89,3 +90,4 @@ block content
 
     
   script(src='/javascripts/question_client.js')
+  script(src='/javascripts/question_answer.js')

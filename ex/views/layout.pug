@@ -19,10 +19,18 @@ html(lang="ko")
     //- Notify 라이브러리 import: http://bootstrap-notify.remabledesigns.com/ 
     script(src='/javascripts/bootstrap-notify.js')
 
+    script(src='http://code.jquery.com/ui/1.11.4/jquery-ui.min.js')  
+    script(src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/datepicker-ko.js')
+    link(rel='stylesheet', href='//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css') 
+    script(src='https://code.jquery.com/ui/1.12.1/jquery-ui.js') 
     //- this application
     link(rel='stylesheet', href='/stylesheets/style.css')
     script(src='/javascripts/application.js')
     
+    //- tinymce
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+    <script>tinymce.init({ selector:'#detailinput1, #detailinput2' });</script>
+
     //- socket io
     script(src='/socket.io/socket.io.js') 
   body
@@ -63,6 +71,3 @@ html(lang="ko")
           message: title
         });
       });
-
-  script(src='http://code.jquery.com/ui/1.11.4/jquery-ui.min.js')  
-  script(src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/datepicker-ko.js')  
